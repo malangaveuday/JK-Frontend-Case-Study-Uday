@@ -7,14 +7,25 @@ class Home extends Component {
     state = {
         inputString: this.props.inputString,
         stringCount: this.props.stringCount,
-        keysArray: this.props.keysArray
+        keysArray: this.props.keysArray,
+        showSpaceError: false
     }
 
     updateString = (event) => {
-        this.setState({ inputString: event.target.value });
-        console.log('this props', this.props);
-        this.props.updateCharcterString(event.target.value);
-        this.generateKeys();
+        const checkSpace = /\s/;
+        const inValid = checkSpace.test(event.target.value);
+        console.log(inValid);
+        if (!inValid) {
+            this.setState({ inputString: event.target.value });
+            console.log('this props', this.props);
+            this.props.updateCharcterString(event.target.value);
+            this.generateKeys();
+        } else {
+            setTimeout(() => {
+                this.setState({ showSpaceError: false });
+            }, 1000);
+            this.setState({ showSpaceError: true })
+        }
     }
 
     updateStringCount = (event) => {
@@ -62,6 +73,16 @@ class Home extends Component {
                                 value={this.state.inputString}
                                 onChange={this.updateString}
                             />
+                            {
+                                <div className="help-box">
+                                    {
+                                        this.state.showSpaceError &&
+                                        <small className="help-text">
+                                            Please avoid space
+                                        </small>
+                                    }
+                                </div>
+                            }
                         </div>
                         <div className="form-group">
                             <label htmlFor="numberInput">Number of keys</label>
