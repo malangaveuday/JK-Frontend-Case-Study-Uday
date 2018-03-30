@@ -1,1 +1,1 @@
-web: bin/boot
+Web: bin/boot
