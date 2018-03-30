@@ -1,5 +1,5 @@
 {
-    "root": "public/bundle.js",
+    "root": "public/",
     "routes": {
         "**/": "index.html"
     }
