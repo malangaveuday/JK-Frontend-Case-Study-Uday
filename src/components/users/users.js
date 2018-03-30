@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import ReactDataGrid from 'react-data-grid';
 import { storeUsers } from '../../actions'
-// import Loading from '../common/loading';
+import Loading from '../common/loading';
 
 class Users extends Component {
     state = {
@@ -90,7 +90,9 @@ class Users extends Component {
         console.log('all users in', this.state);
         return (
             <div>
-                <h3>List of all Users</h3>
+                <h3 className="bottom-space">
+                    List of all Users
+                </h3>
                 {
                     this.state.showGrid &&
                     <ReactDataGrid
@@ -103,10 +105,7 @@ class Users extends Component {
                 }
                 {
                     !this.state.showGrid &&
-                    <div className="text-center col-md-12">
-                        <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-                        <span className="sr-only">Loading...</span>
-                    </div>
+                    <Loading />
                 }
             </div>
         )

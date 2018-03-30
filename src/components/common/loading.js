@@ -1,10 +1,14 @@
 import React from 'react';
 
-// export const Loading = () => {
-//     return (
-//         <div>
-//             <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-//             <span class="sr-only">Loading...</span>
-//         </div>
-//     )
-// }
+const Loading = () => {
+    return (
+        <div className="row">
+            <div className="col-md-12 text-center">
+                <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                <span className="sr-only">Loading...</span>
+            </div>
+        </div>
+    );
+};
+
+export default Loading;
