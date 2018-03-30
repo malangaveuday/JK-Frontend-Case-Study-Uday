@@ -1,0 +1,11 @@
+.tile {
+    width: 100%;
+    background-color: #BDBDBD;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.key-title {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
