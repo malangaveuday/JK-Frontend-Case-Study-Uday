@@ -36,6 +36,9 @@ class Users extends Component {
                     let rows = originalRows.slice(0);
                     this.state = { originalRows, rows };
                 });
+        } else {
+            this._rows = this.state.allUsers;
+            this.setState({ showGrid: true });
         }
     }
 
